@@ -1,4 +1,5 @@
 import scrapy
+import scrapy_xlsx
 
 class QuotesSpider(scrapy.Spider):
     name = 'quotes'

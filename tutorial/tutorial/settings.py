@@ -19,6 +19,10 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+FEED_EXPORTERS = {
+    'xlsx': 'scrapy_xlsx.XlsxItemEporter'
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

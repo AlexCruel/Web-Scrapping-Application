@@ -14,18 +14,11 @@ class AuthorSpider(scrapy.Spider):
         yield from response.follow_all(pagination_links, self.parse)
 
     def parse_author(self, response):
-
-        workbook = xlsxwriter.Workbook('author.xlsx')
-        worksheet = workbook.add_worksheet()
-
-        def extract_with_css(query, worksheet):
-            worksheet.write('A1', 'Hello, World!')
+        def extract_with_css(query):
             return response.css(query).get(default='').strip()
 
         yield {
-            'name': extract_with_css('.author-title::text', worksheet),
-            'birthdate': extract_with_css('.author-born-date::text', worksheet),
-            'bio': extract_with_css('.author-description::text', worksheet)
+            'name': extract_with_css('.author-title::text'),
+            'birthdate': extract_with_css('.author-born-date::text'),
+            'bio': extract_with_css('.author-description::text')
         }
-
-        workbook.close()

@@ -1,18 +1,25 @@
 import scrapy
 import xlsxwriter
+from scrapy.exporters import XmlItemExporter
 
 class Test(scrapy.Spider):
     name = 'test'
 
+    start_urls = ['http://quotes.toscrape.com/']
+
     workbook = xlsxwriter.Workbook('test.xlsx')
     worksheet = workbook.add_worksheet()
 
-    worksheet.set_column('A:A', 20)
+    def parse(self, response, worksheet, name_author):
+        author_page_links = response.css('.author + a')
 
-    bold = workbook.add_format({'bold': True})
+        worksheet.write('A1', name_author)
 
-    worksheet.write('A1', 'Hello, World!')
-    worksheet.write('A2', 'It\'s me!!!!')
-    worksheet.write('A3', 'Bold', bold)
+        return response.follow_all(author_page_links, self.parse_author)
+
+    def parse_author(self, response, worksheet):
+        name_author = response.css('.author-title::text')
+
+        return name_author
 
     workbook.close()
