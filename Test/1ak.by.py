@@ -47,4 +47,3 @@ def parser():
         print('Error: site doesn\'t respond')
 
 parser()
-    
