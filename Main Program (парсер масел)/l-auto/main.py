@@ -20,6 +20,11 @@ class Site():
 
     def get_content(self, html, arg, select_class, find_str):
         soup = BeautifulSoup(html, 'html.parser')
+
+        # delete old div price tag 
+        for div in soup.find_all('div', {'class':'offer__product-old-price'}):
+            div.decompose()
+
         testItem = eval('soup.' + find_str)
         cards = []
         cards.append(
@@ -27,6 +32,7 @@ class Site():
                 'price': testItem
             }
         )
+        print(testItem + ' --- ' + self.URL)
         return cards
 
     def save_document(self, testItem, location):

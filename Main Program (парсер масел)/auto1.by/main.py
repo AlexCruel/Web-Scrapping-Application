@@ -27,6 +27,7 @@ class Site():
                 'price': testItem
             }
         )
+        print(testItem + ' --- ' + self.URL)
         return cards
 
     def save_document(self, testItem, location):
