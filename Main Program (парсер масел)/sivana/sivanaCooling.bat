@@ -1,0 +1,2 @@
+python sivanaCooling.py
+pause
