@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import openpyxl
 from openpyxl.styles import PatternFill
 requests.packages.urllib3.disable_warnings() 
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
 
 class Site():
 
@@ -18,22 +21,34 @@ class Site():
         r = requests.get(self.URL, headers=self.HEADERS, verify=False)
         return r
 
-    def get_content(self, html, arg, select_class, find_str):
+    def get_content(self, html, arg, select_class, find_str, location):
         soup = BeautifulSoup(html, 'html.parser')
 
         # delete old div price tag 
         for div in soup.find_all('div', {'class':'offer__product-old-price'}):
             div.decompose()
-
-        testItem = eval('soup.' + find_str)
+        
         cards = []
-        cards.append(
-            {
-                'price': testItem
-            }
-        )
-        print(testItem + ' --- ' + self.URL)
-        return cards
+        
+        try:
+            testItem = eval('soup.' + find_str)
+            cards.append(
+                {
+                    'price': testItem
+                }
+            )
+            print(Fore.WHITE + testItem + ' --- ' + self.URL)
+            return cards
+        except:
+            text = 'Позиции больше нет ' + location
+            print(Fore.RED + text)
+            cards.append(
+                {
+                    'price': 0
+                }
+            )
+            return cards
+        
 
     def save_document(self, testItem, location):
         workbook = openpyxl.load_workbook('../Анализ.xlsx')
@@ -64,5 +79,5 @@ class Site():
         html = self.get_html()
         if html.status_code == 200:
             cards = []
-            cards.extend(self.get_content(html.text, arg, select_class, find_str))
+            cards.extend(self.get_content(html.text, arg, select_class, find_str, location))
             self.save_document(cards, location)
