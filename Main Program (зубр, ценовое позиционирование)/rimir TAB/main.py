@@ -20,6 +20,10 @@ class Site():
 
     def get_content(self, html, arg, select_class, find_str):
         soup = BeautifulSoup(html, 'html.parser')
+
+        for sup in soup.find_all('sup', {}):
+            sup.decompose()
+
         testItem = eval('soup.' + find_str)
         cards = []
         cards.append(
