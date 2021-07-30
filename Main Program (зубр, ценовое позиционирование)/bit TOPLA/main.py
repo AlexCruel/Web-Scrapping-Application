@@ -28,6 +28,7 @@ class Site():
                 'price': testItem['value']
             }
         )
+        print(testItem['value'] + ' --- ' + self.URL)
         return cards
 
     def save_document(self, testItem, location):
@@ -36,11 +37,11 @@ class Site():
 
         for item in testItem:
             if item['price'] != '':
-                if item['price'] > sheet[location].value:
+                if item['price'] > str(sheet[location].value):
                     sheet[location] = item['price']
                     sheet[location].fill = PatternFill(start_color='98FB98', end_color='98FB98', fill_type='solid')
 
-                elif item['price'] < sheet[location].value:
+                elif item['price'] < str(sheet[location].value):
                     sheet[location] = item['price']
                     sheet[location].fill = PatternFill(start_color='FF6347', end_color='FF6347', fill_type='solid')
 
