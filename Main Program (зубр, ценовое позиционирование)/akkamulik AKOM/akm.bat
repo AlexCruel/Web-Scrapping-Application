@@ -1,4 +1,4 @@
 python akmECO.py
-python akmStandart.py
-python akmPremium.py
+@REM python akmStandart.py
+@REM python akmPremium.py
 pause

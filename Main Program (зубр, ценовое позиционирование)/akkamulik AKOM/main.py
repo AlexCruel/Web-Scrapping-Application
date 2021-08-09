@@ -24,7 +24,7 @@ class Site():
         cards = []
         cards.append(
             {
-                'price': testItem.split(' р.')[0]
+                'price': testItem.split(' р.')[0],
             }
         )
         print(testItem.split(' р.')[0] + ' --- ' + self.URL)

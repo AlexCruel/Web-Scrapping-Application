@@ -34,7 +34,7 @@ class Site():
             testItem = eval('soup.' + find_str)
             cards.append(
                 {
-                    'price': testItem
+                    'price': str(testItem)
                 }
             )
             print(Fore.WHITE + testItem + ' --- ' + self.URL)
@@ -44,7 +44,7 @@ class Site():
             print(Fore.RED + text)
             cards.append(
                 {
-                    'price': 0
+                    'price': str(0)
                 }
             )
             return cards
@@ -56,11 +56,11 @@ class Site():
 
         for item in testItem:
             if item['price'] != '':
-                if item['price'] > sheet[location].value:
+                if item['price'] > str(sheet[location].value):
                     sheet[location] = item['price']
                     sheet[location].fill = PatternFill(start_color='98FB98', end_color='98FB98', fill_type='solid')
 
-                elif item['price'] < sheet[location].value:
+                elif item['price'] < str(sheet[location].value):
                     sheet[location] = item['price']
                     sheet[location].fill = PatternFill(start_color='FF6347', end_color='FF6347', fill_type='solid')
 
