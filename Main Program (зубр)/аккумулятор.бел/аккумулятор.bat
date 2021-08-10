@@ -1,0 +1,2 @@
+python akAsia.py
+pause

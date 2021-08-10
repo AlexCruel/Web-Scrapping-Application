@@ -1,2 +1,2 @@
-python autoenergyULTRA.py
+python akkumulatorAsia.py
 pause

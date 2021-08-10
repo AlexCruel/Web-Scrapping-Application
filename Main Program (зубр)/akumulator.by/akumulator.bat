@@ -1,0 +1,2 @@
+python akumulatorAsia.py
+pause

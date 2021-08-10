@@ -1,0 +1,2 @@
+python akkumulatoryAsia.py
+pause
