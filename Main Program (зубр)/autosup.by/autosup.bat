@@ -1,0 +1,2 @@
+python autosupAsia.py
+pause

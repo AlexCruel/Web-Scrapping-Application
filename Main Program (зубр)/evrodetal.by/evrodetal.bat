@@ -1,0 +1,2 @@
+python evrodetalAsia.py
+pause

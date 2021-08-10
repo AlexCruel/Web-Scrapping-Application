@@ -1,0 +1,2 @@
+python vdomshopAsia.py
+pause

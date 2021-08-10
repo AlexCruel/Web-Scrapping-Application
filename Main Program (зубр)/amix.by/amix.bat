@@ -1,0 +1,2 @@
+python amixAsia.py
+pause

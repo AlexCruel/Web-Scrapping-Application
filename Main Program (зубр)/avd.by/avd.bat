@@ -1,0 +1,2 @@
+python avdAsia.py
+pause

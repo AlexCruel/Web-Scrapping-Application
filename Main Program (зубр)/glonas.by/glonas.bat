@@ -1,0 +1,2 @@
+python glonasAsia.py
+pause

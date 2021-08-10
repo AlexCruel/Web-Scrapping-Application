@@ -1,0 +1,2 @@
+python welltorgAsia.py
+pause

@@ -1,0 +1,2 @@
+python omaAsia.py
+pause

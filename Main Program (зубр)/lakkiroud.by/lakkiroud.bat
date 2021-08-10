@@ -1,0 +1,2 @@
+python lakkiroudAsia.py
+pause
