@@ -1,0 +1,2 @@
+python autoenergyULTRA.py
+pause

@@ -26,9 +26,10 @@ class Site():
         cards = []
         cards.append(
             {
-                'price': re.sub(r'\D', '', testItem)
+                'price': testItem.split(' р.')[0]
             }
         )
+        print(testItem.split(' р.')[0] + ' --- ' + self.URL)
         return cards
 
     def save_document(self, testItem, location):

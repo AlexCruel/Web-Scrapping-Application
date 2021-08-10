@@ -29,6 +29,7 @@ class Site():
                 'price': re.sub(r'\D', '', testItem)
             }
         )
+        print(re.sub(r'\D', '', testItem) + ' --- ' + self.URL)
         return cards
 
     def save_document(self, testItem, location):

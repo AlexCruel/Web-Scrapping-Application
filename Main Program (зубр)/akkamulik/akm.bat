@@ -1,4 +1,4 @@
-python akmECO.py
-python akmStandart.py
+python akmAsia.py
 python akmPremium.py
+python akmULTRA.py
 pause
